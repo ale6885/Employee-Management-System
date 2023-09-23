@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="body">
+    <h1 class="header-text">Employee List</h1>
+    <ul class="ul">
+        {% for employee in employees %}
+        <li>
+            <a href="{{ url_for('employee_details', id=employee.id) }}" class="link">
+                {{ employee.first_name }} {{ employee.last_name }} ({{ employee.email }})
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('logout') }}" class="link">Logout</a>
+
+    <!-- Include the JavaScript file -->
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
