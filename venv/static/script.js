@@ -8,10 +8,9 @@ function confirmDelete() {
 // Function to show a message to the user
 function showMessage(message, success = true) {
     alert(message);
-    // You can customize this function to display messages differently, e.g., using a modal
 }
 
-// Function to handle form submissions via AJAX
+// Function to handle form submissions
 function handleFormSubmit(event) {
     event.preventDefault();
 
@@ -19,7 +18,6 @@ function handleFormSubmit(event) {
     const form = event.target;
     const formData = new FormData(form);
 
-    // Make an AJAX request to submit the form data
     fetch(form.action, {
         method: 'POST',
         body: formData
@@ -29,7 +27,6 @@ function handleFormSubmit(event) {
         if (data.success) {
             // Form submitted successfully
             showMessage(data.message, true);
-            // You can add additional actions here if needed
         } else {
             // Handle form submission errors
             showMessage(data.message, false);
